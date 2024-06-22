@@ -116,8 +116,8 @@ class PluginMainContainer(QWidget, SpyderWidgetMixin):
         if PYQT5 or PYQT6:
             super().__init__(parent=parent, class_parent=plugin)
         else:
+            super().__init__(class_parent=plugin)
             QWidget.__init__(self, parent)
-            SpyderWidgetMixin.__init__(self, class_parent=plugin)
 
         # ---- Attributes
         # --------------------------------------------------------------------

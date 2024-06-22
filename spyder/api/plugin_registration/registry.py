@@ -165,6 +165,8 @@ class SpyderPluginRegistry(QObject, PreferencesAdapter):
         required_plugins = list(set(PluginClass.REQUIRES))
         optional_plugins = list(set(PluginClass.OPTIONAL))
         plugin_name = PluginClass.NAME
+        if plugin_name == 'help':
+            import ipdb; ipdb.set_trace()
 
         logger.debug(f'Registering plugin {plugin_name} - {PluginClass}')
 

@@ -53,7 +53,10 @@ from qtpy.QtWidgets import (
 from qtpy import QtSvg  # analysis:ignore
 
 # Avoid a bug in Qt: https://bugreports.qt.io/browse/QTBUG-46720
-from qtpy import QtWebEngineWidgets  # analysis:ignore
+try:
+    from qtpy import QtWebEngineWidgets  # analysis:ignore
+except ImportError:
+    QtWebEngineWidgets = None
 
 from qtawesome.iconic_font import FontError
 

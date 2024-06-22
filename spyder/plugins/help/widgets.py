@@ -17,7 +17,11 @@ import sys
 from qtpy import PYQT5, PYQT6
 from qtpy.QtCore import Qt, QUrl, Signal, Slot, QPoint
 from qtpy.QtGui import QColor
-from qtpy.QtWebEngineWidgets import WEBENGINE, QWebEnginePage
+try:
+    from qtpy.QtWebEngineWidgets import WEBENGINE, QWebEnginePage
+except ImportError:
+    WEBENGINE = False
+    QWebEnginePage = None
 from qtpy.QtWidgets import (QActionGroup, QLabel, QLineEdit,
                             QMessageBox, QSizePolicy, QStackedWidget,
                             QVBoxLayout, QWidget)
@@ -37,7 +41,10 @@ from spyder.utils import programs
 from spyder.utils.image_path_manager import get_image_path
 from spyder.utils.palette import SpyderPalette
 from spyder.utils.qthelpers import start_file
-from spyder.widgets.browser import FrameWebView
+if WEBENGINE:
+    from spyder.widgets.browser import FrameWebView
+else:
+    FrameWebView = None
 from spyder.widgets.comboboxes import EditableComboBox
 from spyder.widgets.findreplace import FindReplace
 from spyder.widgets.simplecodeeditor import SimpleCodeEditor
