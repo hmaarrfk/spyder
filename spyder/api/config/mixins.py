@@ -289,6 +289,7 @@ class SpyderConfigurationObserver(SpyderConfigurationAccessor):
     def __init__(self):
         super().__init__()
         if self.CONF_SECTION is None:
+            import ipdb; ipdb.set_trace()
             warnings.warn(
                 'A SpyderConfigurationObserver must define a `CONF_SECTION` '
                 f'class attribute! Hint: {self} or its parent should define '

@@ -16,8 +16,11 @@ import qstylizer.style
 from qtpy import PYQT5, PYQT6
 from qtpy.QtCore import QEvent, Qt, QUrl, Signal, Slot
 from qtpy.QtGui import QFontInfo
-from qtpy.QtWebEngineWidgets import (WEBENGINE, QWebEnginePage,
-                                     QWebEngineSettings, QWebEngineView)
+try:
+    from qtpy.QtWebEngineWidgets import (WEBENGINE, QWebEnginePage,
+                                         QWebEngineSettings, QWebEngineView)
+except ImportError:
+    WEBENGINE = False
 from qtpy.QtWidgets import QFrame, QHBoxLayout, QLabel, QProgressBar, QWidget
 
 # Local imports
